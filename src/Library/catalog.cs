@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace Full_GRASP_And_SOLID;
 
-public class catalog
+public class Catalog
 {
     public static readonly List<Product> productCatalog = new();
     public static readonly List<Equipment> equipmentCatalog = new();
-    public static readonly catalog Instance = new();
+    public static readonly Catalog Instance = new();
 
-    private catalog()
+    private Catalog()
     { }
 
     public void AddProductToCatalog(string description, double unitCost)
