@@ -12,18 +12,15 @@ namespace Full_GRASP_And_SOLID
 {
     public class Program
     {
-        private static List<Product> productCatalog = new List<Product>();
-
-        private static List<Equipment> equipmentCatalog = new List<Equipment>();
-
+        
         public static void Main(string[] args)
         {
             PopulateCatalogs();
 
             Recipe recipe = new Recipe();
-            recipe.FinalProduct = catalog.Instance.GetProduct("Café con leche");
-            recipe.AddStep(new Step(catalog.Instance.GetProduct("Café"), 100, catalog.Instance.GetEquipment("Cafetera"), 120));
-            recipe.AddStep(new Step(catalog.Instance.GetProduct("Leche"), 200, catalog.Instance.GetEquipment("Hervidor"), 60));
+            recipe.FinalProduct = Catalog.Instance.GetProduct("Café con leche");
+            recipe.AddStep(Catalog.Instance.GetProduct("Café"), 100, Catalog.Instance.GetEquipment("Cafetera"), 120);
+            recipe.AddStep(Catalog.Instance.GetProduct("Leche"), 200, Catalog.Instance.GetEquipment("Hervidor"), 60);
 
             IPrinter printer;
             printer = new ConsolePrinter();
@@ -34,12 +31,12 @@ namespace Full_GRASP_And_SOLID
 
         private static void PopulateCatalogs()
         {
-            catalog.Instance.AddProductToCatalog("Café", 100);
-            catalog.Instance.AddProductToCatalog("Leche", 200);
-            catalog.Instance.AddProductToCatalog("Café con leche", 300);
+            Catalog.Instance.AddProductToCatalog("Café", 100);
+            Catalog.Instance.AddProductToCatalog("Leche", 200);
+            Catalog.Instance.AddProductToCatalog("Café con leche", 300);
 
-            catalog.Instance.AddEquipmentToCatalog("Cafetera", 1000);
-            catalog.Instance.AddEquipmentToCatalog("Hervidor", 2000);
+            Catalog.Instance.AddEquipmentToCatalog("Cafetera", 1000);
+            Catalog.Instance.AddEquipmentToCatalog("Hervidor", 2000);
         }
 
 
